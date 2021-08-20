@@ -1,1 +1,20 @@
-/home/richard/.gitconfig
+[user]
+	name = ui-richard
+	email = richard.tsai@ui.com
+[http]
+	sslVerify = false
+[alias]
+    co = checkout
+    cm = commit
+    br = branch
+    st = status
+    sh = stash
+    df = diff
+[core]
+	autocrlf = input
+	editor = vim
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
