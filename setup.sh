@@ -8,6 +8,21 @@ update_config() {
     ln -s "$source_file" "$target_file"
 }
 
+install_tpm() {
+    if [ ! -d ~/.tmux ]; then
+        git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+    fi
+}
+
+install_neovim() {
+    if [ ! -d ~/.config/nvim ]; then
+        sudo apt install neovim && mkdir -p ~/.config/nvim/
+    fi
+}
+
+install_tpm
+install_neovim
+
 update_config ~/.bashrc ~/configs/.bashrc
 update_config ~/.bash_aliases ~/configs/.bash_aliases
 update_config ~/.tmux.conf ~/configs/.tmux.conf
