@@ -20,15 +20,30 @@ install_neovim() {
     fi
 }
 
-install_tpm
-install_neovim
+install_lvim() {
+    if [ ! -d ~/.config/lvim ]; then
+        bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)
+    fi
+}
 
-update_config ~/.bashrc ~/configs/.bashrc
-update_config ~/.bash_aliases ~/configs/.bash_aliases
+install_zsh() {
+    if [ ! -d ~/.oh-my-zsh ]; then
+        sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" 
+    fi
+}
+
+install_tpm
+# install_neovim
+intsall_lvim
+
+# update_config ~/.bashrc ~/configs/.bashrc
+# update_config ~/.bash_aliases ~/configs/.bash_aliases
 update_config ~/.tmux.conf ~/configs/.tmux.conf
 update_config ~/.vimrc ~/configs/.vimrc
 update_config ~/.ssh/config ~/configs/ssh_config
 update_config ~/.gitconfig ~/configs/.gitconfig
 update_config ~/.config/nvim/init.vim ~/configs/init.vim
+update_config ~/.config/lvim/config.lua ~/configs/config.lua
+update_config ~/.zshrc ~/configs/.zshrc
 
-source ~/.bashrc
+source ~/.zshrc
