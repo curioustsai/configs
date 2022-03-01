@@ -32,6 +32,12 @@ install_zsh() {
     fi
 }
 
+wget_gdbDashboard() {
+    if [ ! -f ~/.gdbinit ]; then
+        wget https://github.com/cyrus-and/gdb-dashboard/blob/master/.gdbinit -O ~/.gdbinit
+    fi
+}
+
 install_tpm
 # install_neovim
 intsall_lvim
