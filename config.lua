@@ -16,7 +16,7 @@ vim.opt.listchars = {trail = '·', tab = '»·'}
 
 -- general
 lvim.log.level = "warn"
-lvim.format_on_save = false
+lvim.format_on_save = true
 lvim.colorscheme = "onedarker"
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
@@ -118,9 +118,10 @@ lvim.builtin.treesitter.highlight.enabled = true
 --   buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 -- end
 
--- -- set a formatter, this will override the language server formatting capabilities (if it exists)
--- local formatters = require "lvim.lsp.null-ls.formatters"
--- formatters.setup {
+-- set a formatter, this will override the language server formatting capabilities (if it exists)
+local formatters = require "lvim.lsp.null-ls.formatters"
+formatters.setup {
+    { command = "cmake-format", filetype = { "cmake"} }
 --   { command = "black", filetypes = { "python" } },
 --   { command = "isort", filetypes = { "python" } },
 --   {
@@ -132,7 +133,7 @@ lvim.builtin.treesitter.highlight.enabled = true
 --     ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
 --     filetypes = { "typescript", "typescriptreact" },
 --   },
--- }
+}
 
 -- -- set additional linters
 -- local linters = require "lvim.lsp.null-ls.linters"
