@@ -16,7 +16,11 @@ install_tpm() {
 
 install_neovim() {
     if [ ! -d ~/.config/nvim ]; then
-        sudo snap install neovim --classic && mkdir -p ~/.config/nvim/
+        sudo apt-get install -y software-properties-common
+        sudo apt-get install -y python-software-properties
+        sudo add-apt-repository ppa:neovim-ppa/stable
+        sudo apt-get update
+        sudo apt-get install -y neovim && mkdir -p ~/.config/nvim/
     fi
 }
 
@@ -24,6 +28,15 @@ install_lvim() {
     if [ ! -d ~/.config/lvim ]; then
         bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)
     fi
+}
+
+install_nodejs() {
+    curl -fsSL https://deb.nodesource.com/setup_19.x | sudo -E bash - &&\
+    sudo apt-get install -y nodejs
+}
+
+install_python3() {
+    sudo apt-get install -y python-dev python-pip python3-dev python3-pip
 }
 
 install_zsh() {
@@ -38,14 +51,16 @@ wget_gdbDashboard() {
     fi
 }
 
+install_zsh
 install_tpm
 install_neovim
+install_nodejs
+install_python3
 install_lvim
 
 # update_config ~/.bashrc ~/configs/.bashrc
 # update_config ~/.bash_aliases ~/configs/.bash_aliases
 update_config ~/.tmux.conf ~/configs/.tmux.conf
-# update_config ~/.vimrc ~/configs/.vimrc
 update_config ~/.ssh/config ~/configs/ssh_config
 update_config ~/.gitconfig ~/configs/.gitconfig
 update_config ~/.config/nvim/init.vim ~/configs/init.vim

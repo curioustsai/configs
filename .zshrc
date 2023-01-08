@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$PATH:$HOME/workspace/scripts:$HOME/.local/bin/:$HOME/workspace/benchmark_tools/
+export PATH=$HOME/bin:/usr/local/bin:$PATH:$HOME/workspace/scripts:$HOME/.local/bin/:$HOME/workspace/benchmark_tools/:/snap/bin
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -125,13 +125,17 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 alias vim="lvim"
-bindkey "\e[1;3C" forward-word
-bindkey "\e[1;3D" backward-word
-bindkey "^[e" vi-kill-eol
-bindkey "^E" end-of-line
+# bindkey "\e[1;3C" forward-word
+# bindkey "\e[1;3D" backward-word
+# bindkey "^[e" vi-kill-eol
+# bindkey "^E" end-of-line
 
 if [ -d "$HOME/.bookmarks/" ]; then
     export CDPATH=".:$HOME/.bookmarks/:"
     alias goto="cd -P"
 fi
 fpath=(~/.zsh.d/ $fpath)
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

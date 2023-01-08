@@ -1,3 +1,7 @@
+Host bitbucket.org
+AddKeysToAgent yes
+IdentityFile ~/.ssh/bitbucket
+
 Host ml2
 Hostname ml2.fortemedia.com
 User richard
@@ -5,31 +9,3 @@ User richard
 Host ml5
 User richard
 ProxyCommand ssh -q ml2 nc 192.168.123.205 22
-
-Host rhome
-Hostname 114.32.106.181
-User ubnt
-
-Host rhg3inst
-User ubnt
-ProxyCommand ssh -q rhome nc 192.168.149.164 22
-
-Host rhg3flex
-User ubnt
-ProxyCommand ssh -q rhome nc 192.168.149.225 22
-
-Host rhg4bullet
-User ubnt
-ProxyCommand ssh -q rhome nc 192.168.104.129 22
-
-Host rhg4db
-User ubnt
-ProxyCommand ssh -q rhome nc 192.168.149.135 22
-
-Host rhg4dome
-User ubnt
-ProxyCommand ssh -q rhome nc 192.168.149.238 22
-
-Host rhai360
-User ubnt
-ProxyCommand ssh -q rhome nc 192.168.149.134 22
