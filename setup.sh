@@ -18,7 +18,7 @@ install_neovim() {
     if [ ! -d ~/.config/nvim ]; then
         sudo apt-get install -y software-properties-common
         sudo apt-get install -y python-software-properties
-        sudo add-apt-repository ppa:neovim-ppa/stable
+        sudo add-apt-repository ppa:neovim-ppa/unstable
         sudo apt-get update
         sudo apt-get install -y neovim && mkdir -p ~/.config/nvim/
     fi
